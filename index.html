@@ -2,39 +2,44 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla del 3 - Programación</title>
-    <link rel="stylesheet" href="multiplicar.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablas de multiplicar</title>
+  <link rel="stylesheet" href="multiplicar.css">
 </head>
 
-<body>
+<body id="body">
 
-    <header class="header">
-    </header>
+  <div class="stars"></div>
 
-    <main class="container">
-        <h1>Tabla del 3</h1>
+  <main class="container">
+    <div class="input-group">
+      <p class="instrucciones">Ingresa un número para generar su tabla:</p>
+      <input type="number" id="inputTabla" placeholder="Ej: 3" min="1" max="100">
+    </div>
 
-        <!-- Botón -->
-        <button class="btn-probar" onclick="generarTabla()">Mostrar tabla</button>
-        <!-- Tabla -->
-        <div class="contenedorTabla" id="contenedorTabla">
-            <div class="fila"><span>3 x 1</span> <span>=</span> <span>3</span></div>
-            <div class="fila"><span>3 x 2</span> <span>=</span> <span>6</span></div>
-            <div class="fila"><span>3 x 3</span> <span>=</span> <span>9</span></div>
-            <div class="fila"><span>3 x 4</span> <span>=</span> <span>12</span></div>
-            <div class="fila"><span>3 x 5</span> <span>=</span> <span>15</span></div>
-            <div class="fila"><span>3 x 6</span> <span>=</span> <span>18</span></div>
-            <div class="fila"><span>3 x 7</span> <span>=</span> <span>21</span></div>
-            <div class="fila"><span>3 x 8</span> <span>=</span> <span>24</span></div>
-            <div class="fila"><span>3 x 9</span> <span>=</span> <span>27</span></div>
-            <div class="fila"><span>3 x 10</span> <span>=</span> <span>30</span></div>
-        </div>
+    <button class="btn-probar" id="btnProbar">PROBAR</button>
 
-        <h3>Realizado por: Adrian Chacaguasay</h3>
-    </main>
-    <script src="multiplicar.js"></script>
+    <div class="glass-card">
+      <h1 id="titulo">Tabla del...</h1>
+      <table id="tabla-multiplicar">
+        <thead>
+          <tr>
+            <th>Operación</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <footer class="main-footer">
+     
+      <span class="author-name">Adrian Chacaguasay</span>
+    </a>
+  </footer>
+  <script src="multiplicar.js"></script>
 </body>
 
 </html>

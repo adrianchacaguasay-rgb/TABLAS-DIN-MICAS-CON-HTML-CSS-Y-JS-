@@ -1,143 +1,331 @@
+/* =========================
+   RESET Y BASE
+========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Fondo elegante centrado */
 body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #e2e8f0;
-    padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000000;
+  color: #E5E5E5;
 }
 
-/* Ocultamos header para mantener diseño anterior */
-.header {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+/* =========================
+   FONDO DINÁMICO PROFESIONAL
+========================= */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+
+  background: radial-gradient(circle at 20% 20%, #1f2a44, #000000 70%);
 }
 
-/* Botón (mismo estilo elegante) */
+/* Luz superior */
+.stars::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: -100px;
+  left: -100px;
+
+  background: radial-gradient(circle, #FCA31130, transparent 70%);
+  filter: blur(80px);
+}
+
+/* Luz inferior */
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  right: -150px;
+
+  background: radial-gradient(circle, #14213D80, transparent 70%);
+  filter: blur(100px);
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* =========================
+   INPUT
+========================= */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.instrucciones {
+  margin-bottom: 10px;
+  color: #E5E5E5;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: #aaaaaa;
+}
+
+input:focus {
+  border-color: #FCA311;
+  box-shadow: 0 0 10px #FCA31140;
+}
+
+/* =========================
+   BOTÓN
+========================= */
 .btn-probar {
-    background: linear-gradient(135deg, #065f46, #047857);
-    color: #ecfdf5;
-    border: 1px solid #10b981;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 14px;
+
+  background: linear-gradient(135deg, #FCA311, #ffba42);
+  color: #000000;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4);
+  margin-bottom: 25px;
 }
 
 .btn-probar:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(16,185,129,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(252, 163, 17, 0.6);
 }
 
-/* Contenedor tipo tarjeta */
+/* =========================
+   TARJETA (GLASS)
+========================= */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+
+  padding: 25px;
+
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* =========================
+   TÍTULO
+========================= */
+#titulo {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   TABLA
+========================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background: linear-gradient(135deg, #14213D, #1f2a44);
+  color: #FFFFFF;
+}
+
+th {
+  padding: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 12px;
+  color: #E5E5E5;
+}
+
+/* Filas */
+tbody tr {
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.25s ease;
+}
+
+tbody tr:hover {
+  background: rgba(252, 163, 17, 0.15);
+  transform: scale(1.01);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.main-footer {
+  margin-top: auto;
+  background: #000000;
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid #14213D;
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.author-name {
+  font-weight: 500;
+}
+
+/* =========================
+   ANIMACIÓN GENERAL DE ENTRADA
+========================= */
 .container {
-    background: #111827;
-    padding: 35px 45px;
-    border-radius: 14px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid rgba(255,255,255,0.05);
+  animation: fadeIn 1s ease forwards;
 }
 
-/* Título elegante */
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: #f1f5f9;
-    margin-bottom: 20px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Tabla */
-.contenedorTabla {
-    width: 100%;
+/* =========================
+   TARJETA ANIMADA
+========================= */
+.glass-card {
+  animation: cardAppear 0.8s ease;
 }
 
-/* Filas estilo lista anterior */
-.fila {
-    display: flex;
-    justify-content: space-between;
-    background: #1f2937;
-    margin: 6px 0;
-    padding: 10px;
-    border-radius: 6px;
-    border-left: 3px solid #10b981;
-    transition: all 0.3s ease;
-    font-size: 15px;
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
-/* Hover elegante */
-.fila:hover {
-    background: #273549;
-    transform: scale(1.02);
+/* =========================
+   BOTÓN INTERACTIVO
+========================= */
+.btn-probar:active {
+  transform: scale(0.97);
 }
 
-/* Footer como antes */
-h3 {
-    margin-top: 25px;
-    font-size: 13px;
-    color: #94a3b8;
-    opacity: 0.8;
-    font-weight: 300;
+/* =========================
+   TABLA - ANIMACIÓN DE FILAS
+========================= */
+tbody tr {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: filaEntrada 0.4s ease forwards;
 }
 
-/* 📱 Responsive */
-@media (max-width: 480px) {
+/* Delay progresivo por fila */
+tbody tr:nth-child(1) { animation-delay: 0.05s; }
+tbody tr:nth-child(2) { animation-delay: 0.1s; }
+tbody tr:nth-child(3) { animation-delay: 0.15s; }
+tbody tr:nth-child(4) { animation-delay: 0.2s; }
+tbody tr:nth-child(5) { animation-delay: 0.25s; }
+tbody tr:nth-child(6) { animation-delay: 0.3s; }
+tbody tr:nth-child(7) { animation-delay: 0.35s; }
+tbody tr:nth-child(8) { animation-delay: 0.4s; }
+tbody tr:nth-child(9) { animation-delay: 0.45s; }
+tbody tr:nth-child(10){ animation-delay: 0.5s; }
 
-    .container {
-        padding: 25px 20px;
-        border-radius: 10px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    .fila {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    h3 {
-        font-size: 12px;
-    }
-
-    .btn-probar {
-        font-size: 12px;
-        padding: 8px 14px;
-    }
-}
-/* Ocultar checkbox */
-#toggle {
-    display: none;
+@keyframes filaEntrada {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Botón dentro de la tarjeta */
-.btn-probar {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
+/* =========================
+   HOVER MÁS SUAVE EN FILAS
+========================= */
+tbody tr:hover {
+  background: rgba(252, 163, 17, 0.15);
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Ocultar tabla al inicio */
-.tabla-container {
-    display: none;
+/* =========================
+   INPUT INTERACTIVO
+========================= */
+input[type="number"]:focus {
+  transform: scale(1.02);
 }
 
-/* Mostrar tabla al hacer click */
-#toggle:checked ~ .tabla-container {
-    display: block;
+/* =========================
+   EFECTO CUANDO SE GENERA TABLA
+========================= */
+.glass-card.active {
+  animation: glowCard 0.6s ease;
+}
+
+@keyframes glowCard {
+  0% {
+    box-shadow: 0 0 0 rgba(252, 163, 17, 0);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(252, 163, 17, 0.6);
+  }
+  100% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  }
 }
